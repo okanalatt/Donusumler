@@ -1,4 +1,6 @@
-﻿namespace Donusumler
+﻿using System.Threading.Channels;
+
+namespace Donusumler
 {
     internal class Program
     {
@@ -146,6 +148,44 @@
             {
                 Console.WriteLine($"Beklenmeyen Hata: {ex.Message}"); // Çıktı: Beklenmeyen Hata: ...
             }
+
+            //decimal ya da double veri tipiyle bölme işlemi yapıp ekrana yazdırın
+            decimal sayi1 = 10.5m; // decimal türünde bir sayı tanımladık
+            decimal sayi2 = 3.2m; // decimal türünde bir sayı tanımladık
+            decimal bolum = sayi1 / sayi2; // decimal türünde bölme işlemi yapıldı
+            Console.WriteLine($"Decimal Bölme: {bolum}"); // Çıktı: 3.28125
+            Console.Write("Ondalık Sayi gir");
+            double d1=Convert.ToDouble(Console.ReadLine()); // Kullanıcıdan sayı alıyoruz
+            Console.Write("Ondalık Sayi gir");
+            double d2 = Convert.ToDouble(Console.ReadLine()); // Kullanıcıdan sayı alıyoruz
+            double sonuc=d1/d2; // double türünde bölme işlemi yapıldı
+            Console.WriteLine(sonuc);
+            Console.ReadLine(); // Konsol penceresinin açık kalması için
+
+            //byte veri tipiyle bölme işlemi yapıp ekrana yazdırın
+            byte b1 = 10; // byte türünde bir sayı tanımladık
+            byte b2 = 3; // byte türünde bir sayı tanımladık
+            byte bolumByte = (byte)(b1 / b2); // byte türünde bölme işlemi yapıldı (açık dönüşüm ile)
+            Console.WriteLine("Byte tipli deger gir");
+            byte b3= Convert.ToByte(Console.ReadLine()); // Kullanıcıdan byte türünde sayı alıyoruz
+            byte s = (byte) (b1 / b3);
+            Console.WriteLine(s);
+            Console.WriteLine($"Byte Bölme: {bolumByte}"); // Çıktı: 3
+            Console.WriteLine(
+                $"Byte Bölme: {b1} / {b2} = {bolumByte}"); // Çıktı: Byte Bölme: 10 / 3 = 3
+            Console.ReadLine(); // Konsol penceresinin açık kalması için
+
+            string date = "2025-10-10";
+            // string türünde bir tarih tanımladık
+            DateTime tarih = DateTime.Parse(date); // string türünden DateTime türüne parse metodu ile dönüşüm yapıldı
+            Console.WriteLine($"Tarih: {tarih}"); // Çıktı: 10.10.2025 00:00:00
+            Console.WriteLine(
+                $"Tarih: {tarih.GetType()}"); // Çıktı: System.DateTime
+            Console.WriteLine(
+                    $"Tarih: {tarih.GetType().Name}"); // Çıktı: DateTime
+            string date2 = "2025-10-09";
+            DateTime tarih2 = Convert.ToDateTime(date2); // Convert sınıfı ile dönüşüm yapıldı
+            Console.WriteLine(tarih2);
 
 
         }
